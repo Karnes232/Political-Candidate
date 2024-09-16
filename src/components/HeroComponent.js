@@ -30,7 +30,6 @@ const HeroComponent = ({ backgroundImage, candidateImage }) => {
   let candidateStyles = {
     backgroundImage: "url(" + candiateImageSrc[2].imageSrc + ")",
   };
-  console.log(backgroundImageSrc[2].imageSrc);
   return (
     <>
       <div className="absolute top-0 w-full h-screen">

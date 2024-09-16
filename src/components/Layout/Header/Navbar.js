@@ -1,6 +1,7 @@
 import React from "react";
 import Logo from "./Logo";
 import LinksRight from "./LinksRight";
+import HamburgerMenu from "./HamburgerMenu";
 
 const Navbar = () => {
   return (
@@ -8,6 +9,7 @@ const Navbar = () => {
       <div className="flex items-center justify-between bg-transparent max-w-6xl mx-5 md:mx-10 lg:mx-8 xl:mx-auto">
         <Logo />
         <LinksRight />
+        <HamburgerMenu />
       </div>
     </nav>
   );
