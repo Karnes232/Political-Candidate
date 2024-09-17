@@ -1,10 +1,11 @@
 import { graphql } from "gatsby";
 import React, { useRef } from "react";
 import Layout from "../components/Layout/Layout";
-import HeroComponent from "../components/HeroComponent";
+import HeroComponent from "../components/HeroComponent/HeroComponent";
 import LoadingScreen from "../components/LoadingScreen/LoadingScreen";
 import MeetCandidate from "../components/MeetCandidate/MeetCandidate";
 import useBottomRef from "../hooks/useBottomRef";
+import LinkCards from "../components/LinkCards/LinkCards";
 
 const IndexPage = ({ data }) => {
   const heroRef = useRef(null);
@@ -30,6 +31,7 @@ const IndexPage = ({ data }) => {
           data.allContentfulPageLayout?.nodes[0].secondaryCandidateImage
         }
       />
+      <LinkCards pageCards={data.allContentfulPageCard.nodes} />
       <div className="h-screen"></div>
     </Layout>
   );
@@ -70,6 +72,17 @@ export const query = graphql`
         }
         meetCandidate {
           raw
+        }
+      }
+    }
+    allContentfulPageCard {
+      nodes {
+        page
+        title
+        shortDescription
+        buttonText
+        backgroundImage {
+          gatsbyImage(width: 500, placeholder: BLURRED, formats: WEBP)
         }
       }
     }

@@ -31,7 +31,7 @@ const useBottomRef = (heroRef) => {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, []);
+  }, [heroRef]);
 
   return navBarColor;
 };
