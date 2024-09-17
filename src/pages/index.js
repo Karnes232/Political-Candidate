@@ -2,11 +2,13 @@ import { graphql } from "gatsby";
 import * as React from "react";
 import Layout from "../components/Layout/Layout";
 import HeroComponent from "../components/HeroComponent";
+import LoadingScreen from "../components/LoadingScreen/LoadingScreen";
 
 const IndexPage = ({ data }) => {
   // console.log(data.allContentfulPageLayout?.nodes[0]);
   return (
     <Layout>
+      <LoadingScreen />
       <HeroComponent
         backgroundImage={data.allContentfulPageLayout.nodes[0].backgroundImage}
         candidateImage={

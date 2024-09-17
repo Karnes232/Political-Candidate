@@ -23,7 +23,7 @@ const HeroComponent = ({ backgroundImage, candidateImage }) => {
 
   let HeroStyles = {
     backgroundImage:
-      "linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.2)), url(" +
+      "linear-gradient(0deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.4) 75%, rgba(0, 0, 0, 0.8) 100%), url(" +
       backgroundImageSrc[2].imageSrc +
       ")",
   };
