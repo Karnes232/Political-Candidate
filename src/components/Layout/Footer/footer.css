@@ -1,5 +1,5 @@
 .footerIcons {
-  @apply h-7 w-7 cursor-pointer text-white;
+  @apply h-7 w-7 cursor-pointer;
 }
 
 .footerSitemap {

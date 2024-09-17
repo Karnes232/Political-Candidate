@@ -1,20 +1,36 @@
 import { graphql } from "gatsby";
-import * as React from "react";
+import React, { useRef } from "react";
 import Layout from "../components/Layout/Layout";
 import HeroComponent from "../components/HeroComponent";
 import LoadingScreen from "../components/LoadingScreen/LoadingScreen";
+import MeetCandidate from "../components/MeetCandidate/MeetCandidate";
+import useBottomRef from "../hooks/useBottomRef";
 
 const IndexPage = ({ data }) => {
+  const heroRef = useRef(null);
+  let navBarColor = useBottomRef(heroRef);
+
   // console.log(data.allContentfulPageLayout?.nodes[0]);
   return (
-    <Layout layout={data.allContentfulGeneralLayout.nodes[0]}>
+    <Layout
+      layout={data.allContentfulGeneralLayout.nodes[0]}
+      navBarColor={navBarColor}
+    >
       <LoadingScreen logo={data.allContentfulGeneralLayout.nodes[0].logo} />
       <HeroComponent
+        heroRef={heroRef}
         backgroundImage={data.allContentfulPageLayout.nodes[0].backgroundImage}
         candidateImage={
           data.allContentfulPageLayout?.nodes[0].politicalCandidateImage
         }
       />
+      <MeetCandidate
+        richText={data.allContentfulPageLayout?.nodes[0].meetCandidate}
+        candidateImage={
+          data.allContentfulPageLayout?.nodes[0].secondaryCandidateImage
+        }
+      />
+      <div className="h-screen"></div>
     </Layout>
   );
 };
@@ -47,6 +63,13 @@ export const query = graphql`
         politicalCandidateImage {
           gatsbyImage(width: 2000, placeholder: BLURRED, formats: WEBP)
           title
+        }
+        secondaryCandidateImage {
+          gatsbyImage(width: 1000, placeholder: BLURRED, formats: WEBP)
+          title
+        }
+        meetCandidate {
+          raw
         }
       }
     }

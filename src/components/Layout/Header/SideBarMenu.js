@@ -6,7 +6,8 @@ import {
   Menu,
   MenuItem,
 } from "react-pro-sidebar";
-const SideBarMenu = ({ toggled, setToggled }) => {
+import SocialMedia from "../Footer/SocialMedia";
+const SideBarMenu = ({ toggled, setToggled, info }) => {
   return (
     <>
       <Sidebar
@@ -34,9 +35,13 @@ const SideBarMenu = ({ toggled, setToggled }) => {
               </MenuItem>
             </Menu>
           </div>
-          {/* <footer className="hamburger mx-4">
-            <SocialMedia classes="flex-row-reverse" />
-          </footer> */}
+          <footer className="hamburger mx-4">
+            <SocialMedia
+              info={info}
+              classes="flex-row-reverse"
+              iconColor="text-black"
+            />
+          </footer>
         </div>
       </Sidebar>
     </>

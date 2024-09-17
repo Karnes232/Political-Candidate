@@ -1,18 +1,19 @@
 import React from "react";
 import { FaFacebookF, FaInstagram } from "react-icons/fa";
 import { GrMail } from "react-icons/gr";
-const SocialMedia = ({ info }) => {
-  console.log(info);
+const SocialMedia = ({ info, classes, iconColor }) => {
   return (
     <div className="border-b border-white md:border-none">
-      <div className="mx-8 flex justify-around py-4 md:mx-auto md:max-w-md">
+      <div
+        className={`mx-8 flex justify-around py-4 md:mx-auto md:max-w-md ${classes}`}
+      >
         <a
           href={info.facebook}
           target="_blank"
           aria-label="Facebook"
           rel="noreferrer"
         >
-          <FaFacebookF className="footerIcons" />
+          <FaFacebookF className={`footerIcons ${iconColor}`} />
         </a>
         <a
           href={info.instagram}
@@ -20,10 +21,10 @@ const SocialMedia = ({ info }) => {
           aria-label="Instagram"
           rel="noreferrer"
         >
-          <FaInstagram className="footerIcons" />
+          <FaInstagram className={`footerIcons ${iconColor}`} />
         </a>
         <a href={`mailto:${info.email}`} aria-label="Gmail" rel="noreferrer">
-          <GrMail className="footerIcons" />
+          <GrMail className={`footerIcons ${iconColor}`} />
         </a>
       </div>
     </div>

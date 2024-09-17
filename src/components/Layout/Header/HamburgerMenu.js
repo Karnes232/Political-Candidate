@@ -2,12 +2,12 @@ import React, { useState } from "react";
 import loadable from "@loadable/component";
 import { HiBars3 } from "react-icons/hi2";
 const SideBarMenu = loadable(() => import("./SideBarMenu"));
-const HamburgerMenu = () => {
+const HamburgerMenu = ({ info, navBarColor }) => {
   const [toggled, setToggled] = useState(false);
   return (
     <>
       <div className="flex lg:hidden">
-        <SideBarMenu toggled={toggled} setToggled={setToggled} />
+        <SideBarMenu toggled={toggled} setToggled={setToggled} info={info} />
         <main className="flex p-3">
           <div>
             <button
@@ -15,7 +15,7 @@ const HamburgerMenu = () => {
               className={`sb-button `}
               onClick={() => setToggled(!toggled)}
             >
-              <HiBars3 className={`h-7 w-7 md:h-9 text-white`} />
+              <HiBars3 className={`h-7 w-7 md:h-9 ${navBarColor}`} />
             </button>
           </div>
         </main>

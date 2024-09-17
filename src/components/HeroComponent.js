@@ -1,6 +1,6 @@
 import React from "react";
 
-const HeroComponent = ({ backgroundImage, candidateImage }) => {
+const HeroComponent = ({ heroRef, backgroundImage, candidateImage }) => {
   let backgroundImageSplit =
     backgroundImage?.gatsbyImage?.images?.fallback?.srcSet.split(",");
   let candidateImageSplit =
@@ -32,7 +32,7 @@ const HeroComponent = ({ backgroundImage, candidateImage }) => {
   };
   return (
     <>
-      <div className="absolute top-0 w-full h-screen">
+      <div className="absolute top-0 w-full h-screen" ref={heroRef}>
         <div
           className={`relative h-full bg-center bg-no-repeat bg-cover`}
           style={HeroStyles}
