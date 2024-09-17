@@ -1,21 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { useStaticQuery, graphql } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
-const LoadingScreen = () => {
-  const data = useStaticQuery(graphql`
-    query HeaderQuery {
-      allContentfulGeneralLayout {
-        nodes {
-          logo {
-            gatsbyImage(width: 500, placeholder: BLURRED, formats: WEBP)
-            title
-          }
-        }
-      }
-    }
-  `);
-  const image = getImage(data.allContentfulGeneralLayout.nodes[0].logo);
+const LoadingScreen = ({ logo }) => {
+  const image = getImage(logo);
   const [isVisible, setIsVisible] = useState(true);
 
   useEffect(() => {
@@ -34,10 +21,9 @@ const LoadingScreen = () => {
           exit={{ opacity: 0 }}
           transition={{ duration: 2, delay: 1.5 }}
         >
-  
           <GatsbyImage
             image={image}
-            alt={data.allContentfulGeneralLayout.nodes[0].logo.title}
+            alt={logo.title}
             className="w-52 lg:w-60 z-[100]"
           />
         </motion.div>

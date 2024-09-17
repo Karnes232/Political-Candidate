@@ -7,15 +7,14 @@ import LoadingScreen from "../components/LoadingScreen/LoadingScreen";
 const IndexPage = ({ data }) => {
   // console.log(data.allContentfulPageLayout?.nodes[0]);
   return (
-    <Layout>
-      <LoadingScreen />
+    <Layout layout={data.allContentfulGeneralLayout.nodes[0]}>
+      <LoadingScreen logo={data.allContentfulGeneralLayout.nodes[0].logo} />
       <HeroComponent
         backgroundImage={data.allContentfulPageLayout.nodes[0].backgroundImage}
         candidateImage={
           data.allContentfulPageLayout?.nodes[0].politicalCandidateImage
         }
       />
-      <h1 className="text-6xl">Helo World</h1>
     </Layout>
   );
 };
@@ -26,6 +25,18 @@ export const Head = () => <title>Home Page</title>;
 
 export const query = graphql`
   query MyQuery {
+    allContentfulGeneralLayout {
+      nodes {
+        candidateName
+        email
+        facebook
+        instagram
+        logo {
+          gatsbyImage(width: 500, placeholder: BLURRED, formats: WEBP)
+          title
+        }
+      }
+    }
     allContentfulPageLayout(filter: { page: { eq: "Index" } }) {
       nodes {
         page

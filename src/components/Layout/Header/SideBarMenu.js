@@ -5,7 +5,6 @@ import {
   // menuClasses,
   Menu,
   MenuItem,
-  SubMenu,
 } from "react-pro-sidebar";
 const SideBarMenu = ({ toggled, setToggled }) => {
   return (

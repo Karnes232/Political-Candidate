@@ -1,20 +1,8 @@
 import React from "react";
-import { useStaticQuery, graphql, Link } from "gatsby";
+import { Link } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
-const Logo = () => {
-  const data = useStaticQuery(graphql`
-    query HeaderQuery {
-      allContentfulGeneralLayout {
-        nodes {
-          logo {
-            gatsbyImage(width: 500, placeholder: BLURRED, formats: WEBP)
-            title
-          }
-        }
-      }
-    }
-  `);
-  const image = getImage(data.allContentfulGeneralLayout.nodes[0].logo);
+const Logo = ({ logo }) => {
+  const image = getImage(logo);
   return (
     <>
       <div className="flex justify-center items-center overflow-hidden">
@@ -22,7 +10,7 @@ const Logo = () => {
           <div className="cursor-pointer flex items-center">
             <GatsbyImage
               image={image}
-              alt={data.allContentfulGeneralLayout.nodes[0].logo.title}
+              alt={logo.title}
               className="w-36 lg:w-52"
             />
           </div>
