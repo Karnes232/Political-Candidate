@@ -4,7 +4,6 @@ import { LuClipboardList } from "react-icons/lu";
 import { LiaPrayingHandsSolid } from "react-icons/lia";
 import { MdFamilyRestroom } from "react-icons/md";
 const LinkCards = ({ pageCards }) => {
-  console.log(pageCards);
   let propuestaCard;
   let contactoCard;
   let nostrosCard;
@@ -20,9 +19,8 @@ const LinkCards = ({ pageCards }) => {
     }
     return null;
   });
-  console.log(propuestaCard);
   return (
-    <div className="flex flex-col md:flex-row md:flex-wrap md:justify-evenly lg:space-x-10 mb-5 xl:mb-7">
+    <div className="flex flex-col lg:flex-row lg:justify-between xl:mx-7 lg:space-x-7 mb-5 xl:mb-7">
       <IndividualCard pageCard={propuestaCard} icon={LuClipboardList} />
       <IndividualCard pageCard={nostrosCard} icon={MdFamilyRestroom} />
       <IndividualCard pageCard={contactoCard} icon={LiaPrayingHandsSolid} />

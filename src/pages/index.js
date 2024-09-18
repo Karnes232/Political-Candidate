@@ -6,11 +6,12 @@ import LoadingScreen from "../components/LoadingScreen/LoadingScreen";
 import MeetCandidate from "../components/MeetCandidate/MeetCandidate";
 import useBottomRef from "../hooks/useBottomRef";
 import LinkCards from "../components/LinkCards/LinkCards";
+import useCheckWidth from "../hooks/useCheckWidth";
 
 const IndexPage = ({ data }) => {
   const heroRef = useRef(null);
   let navBarColor = useBottomRef(heroRef);
-
+  useCheckWidth();
   // console.log(data.allContentfulPageLayout?.nodes[0]);
   return (
     <Layout
@@ -25,7 +26,7 @@ const IndexPage = ({ data }) => {
           data.allContentfulPageLayout?.nodes[0].politicalCandidateImage
         }
       />
-      <div className="2xl:max-w-7xl 2xl:mx-auto">
+      <div className="xl:max-w-7xl 2xl:max-w-screen-2xl xl:mx-auto">
         <MeetCandidate
           richText={data.allContentfulPageLayout?.nodes[0].meetCandidate}
           candidateImage={

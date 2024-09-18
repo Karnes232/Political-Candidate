@@ -25,7 +25,7 @@ const IndividualCard = ({ pageCard, icon: Icon }) => {
         duration: 3,
         delay: 0.3,
       }}
-      className="w-full lg:w-[23rem] mt-5 lg:mt-0 overflow-hidden shadow-lg min-h-[25rem] h-full bg-center bg-no-repeat bg-cover flex justify-center items-center"
+      className="w-full mt-5 lg:mt-0 overflow-hidden shadow-lg min-h-[25rem] h-full bg-center bg-no-repeat bg-cover flex justify-center items-center"
       style={HeroStyles}
     >
       <motion.div
