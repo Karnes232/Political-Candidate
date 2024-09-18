@@ -6,12 +6,10 @@ import LoadingScreen from "../components/LoadingScreen/LoadingScreen";
 import MeetCandidate from "../components/MeetCandidate/MeetCandidate";
 import useBottomRef from "../hooks/useBottomRef";
 import LinkCards from "../components/LinkCards/LinkCards";
-import useCheckWidth from "../hooks/useCheckWidth";
 
 const IndexPage = ({ data }) => {
   const heroRef = useRef(null);
   let navBarColor = useBottomRef(heroRef);
-  useCheckWidth();
   // console.log(data.allContentfulPageLayout?.nodes[0]);
   return (
     <Layout

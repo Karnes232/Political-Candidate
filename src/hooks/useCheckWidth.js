@@ -1,11 +1,15 @@
-const useCheckWidth = () => {
-  var docWidth = document.documentElement.offsetWidth;
+import { useEffect } from "react";
 
-  [].forEach.call(document.querySelectorAll("*"), function (el) {
-    if (el.offsetWidth > docWidth) {
-      console.log(el);
-    }
-  });
+const useCheckWidth = () => {
+  useEffect(() => {
+    var docWidth = document.documentElement.offsetWidth;
+
+    [].forEach.call(document.querySelectorAll("*"), function (el) {
+      if (el.offsetWidth > docWidth) {
+        console.log(el);
+      }
+    });
+  }, []);
 };
 
 export default useCheckWidth;
