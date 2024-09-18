@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { RowsPhotoAlbum } from "react-photo-album";
+import { RowsPhotoAlbum, MasonryPhotoAlbum } from "react-photo-album";
 import "react-photo-album/rows.css";
 import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
-
+import "react-photo-album/masonry.css";
 // import optional lightbox plugins
 import Fullscreen from "yet-another-react-lightbox/plugins/fullscreen";
 import Slideshow from "yet-another-react-lightbox/plugins/slideshow";
@@ -29,7 +29,7 @@ const PhotoGrid = ({ images }) => {
 
   return (
     <div className="mb-5">
-      <RowsPhotoAlbum
+      <MasonryPhotoAlbum
         photos={photoList}
         // targetRowHeight={150}
         onClick={({ index }) => setIndex(index)}

@@ -37,8 +37,9 @@ const Index = ({ data }) => {
             data.allContentfulPageLayout?.nodes[0].thirdCandidateImage
           }
         />
-      
-      <PhotoGrid images={data.allContentfulPhotoList?.nodes[0].photos} /></div>
+
+        <PhotoGrid images={data.allContentfulPhotoList?.nodes[0].photos} />
+      </div>
     </Layout>
   );
 };
