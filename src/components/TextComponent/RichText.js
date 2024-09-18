@@ -116,9 +116,7 @@ const RichText = ({ context }) => {
   );
   return (
     <>
-      <div className="flex flex-col mx-5 lg:mx-0 xl:mx-auto">
-        {richTextDocument}
-      </div>
+      <div className="mx-5 lg:mx-0 xl:mx-auto">{richTextDocument}</div>
     </>
   );
 };

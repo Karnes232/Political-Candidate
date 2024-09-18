@@ -11,6 +11,11 @@ module.exports = {
         "secondary-color": "var(--secondary-color)",
         "primary-bg-color": "var(--primary-bg-color)",
       },
+      fontFamily: {
+        montserrat: ["Montserrat"],
+        lato: ["Lato"],
+        garamond: ["Garamond"],
+      },
     },
   },
   plugins: [],

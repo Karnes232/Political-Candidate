@@ -11,11 +11,11 @@ const TextComponent = ({ title, paragraph, className, pClassName }) => {
           duration: 3,
           delay: 0.3,
         }}
-        className="flex flex-col justify-center xl:mx-auto"
+        className="block justify-center xl:mx-auto"
       >
         {title ? (
           <h1
-            className={`font-lato tracking-wider font-semibold  ${className}`}
+            className={`font-montserrat tracking-wider font-semibold ${className}`}
           >
             {title}
           </h1>
@@ -24,7 +24,7 @@ const TextComponent = ({ title, paragraph, className, pClassName }) => {
         )}
         {paragraph ? (
           <p
-            className={`font-montserrat lg:text-lg text-gray-700 ${pClassName}`}
+            className={`font-lato lg:text-lg text-gray-700 ${pClassName}`}
             // dangerouslySetInnerHTML={{ __html: paragraph }}
           >
             {paragraph}

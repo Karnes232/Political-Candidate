@@ -24,13 +24,19 @@ const SideBarMenu = ({ toggled, setToggled, info }) => {
               <MenuItem component={<Link to="/" className="hamburger" />}>
                 <p className="hamburger">Inicio</p>
               </MenuItem>
-              <MenuItem component={<Link to="/" className="hamburger" />}>
+              <MenuItem
+                component={<Link to="/nostros" className="hamburger" />}
+              >
                 <p className="hamburger">Sobre Nosotros</p>
               </MenuItem>
-              <MenuItem component={<Link to="/" className="hamburger" />}>
+              <MenuItem
+                component={<Link to="/propuestas" className="hamburger" />}
+              >
                 <p className="hamburger">Propuestas</p>
               </MenuItem>
-              <MenuItem component={<Link to="/" className="hamburger" />}>
+              <MenuItem
+                component={<Link to="/contacto" className="hamburger" />}
+              >
                 <p className="hamburger">Contacto</p>
               </MenuItem>
             </Menu>
