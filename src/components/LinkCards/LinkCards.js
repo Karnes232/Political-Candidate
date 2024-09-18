@@ -22,7 +22,7 @@ const LinkCards = ({ pageCards }) => {
   });
   console.log(propuestaCard);
   return (
-    <div className="flex flex-col md:flex-row md:flex-wrap md:justify-evenly max-w-5xl xl:max-w-6xl mx-auto">
+    <div className="flex flex-col md:flex-row md:flex-wrap md:justify-evenly lg:space-x-10 mb-5 xl:mb-7">
       <IndividualCard pageCard={propuestaCard} icon={LuClipboardList} />
       <IndividualCard pageCard={nostrosCard} icon={MdFamilyRestroom} />
       <IndividualCard pageCard={contactoCard} icon={LiaPrayingHandsSolid} />

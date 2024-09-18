@@ -5,7 +5,7 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image";
 const MeetCandidate = ({ richText, candidateImage }) => {
   const image = getImage(candidateImage);
   return (
-    <div className="flex flex-col lg:flex-row justify-center items-center xl:m-5">
+    <div className="flex flex-col lg:flex-row justify-center items-center xl:m-7 xl:space-x-7">
       <div className="lg:basis-2/3">
         <RichText context={richText} />
       </div>

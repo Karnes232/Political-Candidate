@@ -25,14 +25,15 @@ const IndexPage = ({ data }) => {
           data.allContentfulPageLayout?.nodes[0].politicalCandidateImage
         }
       />
-      <MeetCandidate
-        richText={data.allContentfulPageLayout?.nodes[0].meetCandidate}
-        candidateImage={
-          data.allContentfulPageLayout?.nodes[0].secondaryCandidateImage
-        }
-      />
-      <LinkCards pageCards={data.allContentfulPageCard.nodes} />
-      <div className="h-screen"></div>
+      <div className="2xl:max-w-7xl 2xl:mx-auto">
+        <MeetCandidate
+          richText={data.allContentfulPageLayout?.nodes[0].meetCandidate}
+          candidateImage={
+            data.allContentfulPageLayout?.nodes[0].secondaryCandidateImage
+          }
+        />
+        <LinkCards pageCards={data.allContentfulPageCard.nodes} />
+      </div>
     </Layout>
   );
 };
