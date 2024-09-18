@@ -6,6 +6,7 @@ import LoadingScreen from "../components/LoadingScreen/LoadingScreen";
 import MeetCandidate from "../components/MeetCandidate/MeetCandidate";
 import useBottomRef from "../hooks/useBottomRef";
 import LinkCards from "../components/LinkCards/LinkCards";
+import Seo from "../components/seo";
 
 const IndexPage = ({ data }) => {
   const heroRef = useRef(null);
@@ -39,7 +40,20 @@ const IndexPage = ({ data }) => {
 
 export default IndexPage;
 
-export const Head = () => <title>Home Page</title>;
+export const Head = ({ data }) => {
+  const { title, description, keywords } = data.allContentfulSeo.nodes[0];
+  return (
+    <>
+      <Seo
+        title={title}
+        description={description.description}
+        keywords={keywords.join(", ")}
+        // schemaMarkup={schema}
+      />
+      <link rel="canonical" href="https://unknown.com/" />
+    </>
+  );
+};
 
 export const query = graphql`
   query MyQuery {
@@ -52,6 +66,15 @@ export const query = graphql`
         logo {
           gatsbyImage(width: 500, placeholder: BLURRED, formats: WEBP)
           title
+        }
+      }
+    }
+    allContentfulSeo(filter: { page: { eq: "Index" } }) {
+      nodes {
+        title
+        keywords
+        description {
+          description
         }
       }
     }
