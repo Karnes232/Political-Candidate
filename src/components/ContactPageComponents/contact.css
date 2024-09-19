@@ -1,13 +1,30 @@
 .contactFormInput {
-  @apply block py-2.5 px-0 w-full text-base text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-black;
+  @apply block py-2.5 px-0 w-full text-base text-white bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-white;
+}
+
+input:-webkit-autofill {
+  -webkit-text-fill-color: #ffffff;
+}
+
+input:-webkit-autofill:focus {
+  -webkit-text-fill-color: #ffffff;
+}
+
+input {
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
 }
 
 .PhoneInputInput {
-  @apply block py-2.5 px-0 w-full text-base text-gray-900 bg-transparent border-0 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-black;
+  @apply block py-2.5 px-0 w-full text-base text-white bg-transparent border-0 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-white;
+}
+
+.PhoneInputInput::placeholder {
+  @apply text-white;
 }
 
 .contactFormLabel {
-  @apply peer-focus:font-medium absolute text-base text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-black peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 capitalize;
+  @apply peer-focus:font-medium absolute text-base text-white duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-white peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 capitalize;
 }
 
 .PhoneInputInput:focus-visible,
@@ -17,4 +34,7 @@
 
 .zzz {
   z-index: 1000;
+}
+
+.contactFormBackGround {
 }
