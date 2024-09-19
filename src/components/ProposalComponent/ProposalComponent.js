@@ -1,7 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
 const ProposalComponent = ({ text, className }) => {
-  console.log(text);
   return (
     <motion.div
       initial={{ opacity: 0 }}

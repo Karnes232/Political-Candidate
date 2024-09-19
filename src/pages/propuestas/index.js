@@ -3,6 +3,7 @@ import React from "react";
 import Layout from "../../components/Layout/Layout";
 import Seo from "../../components/seo";
 import ProposalComponent from "../../components/ProposalComponent/ProposalComponent";
+import ProposalCard from "../../components/ProposalComponent/ProposalCard";
 
 const Index = ({ data }) => {
   return (
@@ -14,7 +15,11 @@ const Index = ({ data }) => {
           className="gradient-text text-4xl font-bold md:text-5xl lg:text-6xl"
         />
       </div>
-      <div className="h-screen bg-purple-600"></div>
+      <div className="xl:max-w-7xl 2xl:max-w-screen-2xl xl:mx-auto flex flex-col md:flex-row md:flex-wrap md:justify-center gap-6 mb-6">
+        {data.allContentfulPropuestaCard.nodes.map((card, index) => {
+          return <ProposalCard cardInfo={card} key={index} />;
+        })}
+      </div>
     </Layout>
   );
 };
