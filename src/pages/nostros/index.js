@@ -5,8 +5,8 @@ import useBottomRef from "../../hooks/useBottomRef";
 import { graphql } from "gatsby";
 import TextComponent from "../../components/TextComponent/TextComponent";
 import AboutCandidate from "../../components/AboutCandidate/AboutCandidate";
-import HeroImage from "../../components/AboutCandidate/HeroImage";
 import PhotoGrid from "../../components/PhotoGrid/PhotoGrid";
+import Seo from "../../components/seo";
 
 const Index = ({ data }) => {
   const heroRef = useRef(null);
@@ -46,6 +46,24 @@ const Index = ({ data }) => {
 
 export default Index;
 
+export const Head = ({ data }) => {
+  const { title, description, keywords } = data.allContentfulSeo.nodes[0];
+  return (
+    <>
+      <Seo
+        title={title}
+        description={description.description}
+        keywords={keywords.join(", ")}
+        // schemaMarkup={schema}
+      />
+      <link
+        rel="canonical"
+        href={`${data.allContentfulGeneralLayout.nodes[0].url}nostros`}
+      />
+    </>
+  );
+};
+
 export const query = graphql`
   query MyQuery {
     allContentfulGeneralLayout {
@@ -54,9 +72,19 @@ export const query = graphql`
         email
         facebook
         instagram
+        url
         logo {
           gatsbyImage(width: 500, placeholder: BLURRED, formats: WEBP)
           title
+        }
+      }
+    }
+    allContentfulSeo(filter: { page: { eq: "Nostros" } }) {
+      nodes {
+        title
+        keywords
+        description {
+          description
         }
       }
     }

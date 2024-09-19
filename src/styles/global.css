@@ -11,3 +11,19 @@
 html {
   padding-right: 0 !important;
 }
+
+.gradient-text {
+  background: linear-gradient(
+    90deg,
+    #009557,
+    #00c09a,
+    #00d084,
+    #007d50,
+    #004d40
+  ); /* Define gradient colors */
+  -webkit-background-clip: text; /* Safari/Chrome support */
+  -moz-background-clip: text; /* Firefox support (older) */
+  background-clip: text; /* Standard property */
+  -webkit-text-fill-color: transparent; /* Safari/Chrome support */
+  -moz-text-fill-color: transparent; /* Firefox support (older) */
+}

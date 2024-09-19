@@ -49,7 +49,10 @@ export const Head = ({ data }) => {
         keywords={keywords.join(", ")}
         // schemaMarkup={schema}
       />
-      <link rel="canonical" href="https://unknown.com/" />
+      <link
+        rel="canonical"
+        href={`${data.allContentfulGeneralLayout.nodes[0].url}`}
+      />
     </>
   );
 };
@@ -62,6 +65,7 @@ export const query = graphql`
         email
         facebook
         instagram
+        url
         logo {
           gatsbyImage(width: 500, placeholder: BLURRED, formats: WEBP)
           title

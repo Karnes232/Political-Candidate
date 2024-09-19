@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { RowsPhotoAlbum, MasonryPhotoAlbum } from "react-photo-album";
+import { MasonryPhotoAlbum } from "react-photo-album";
+// import { RowsPhotoAlbum } from "react-photo-album";
 import "react-photo-album/rows.css";
 import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";

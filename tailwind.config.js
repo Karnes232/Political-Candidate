@@ -19,4 +19,10 @@ module.exports = {
     },
   },
   plugins: [],
+  extend: {
+    backgroundImage: {
+      "gradient-text":
+        "linear-gradient(90deg, #009557, #00c09a, #00d084, #007d50, #004d40);",
+    },
+  },
 };
