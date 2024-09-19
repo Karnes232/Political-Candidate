@@ -99,7 +99,7 @@ const RichText = ({ context }) => {
   );
   return (
     <>
-      <div className="mx-5 lg:mx-0 xl:mx-auto">{richTextDocument}</div>
+      <div className="mb-5 lg:mx-0 xl:mx-auto">{richTextDocument}</div>
     </>
   );
 };
