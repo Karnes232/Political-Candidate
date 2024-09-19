@@ -1,7 +1,7 @@
 import React from "react";
 import "react-phone-number-input/style.css";
 import PhoneInput from "react-phone-number-input";
-const ContactInfo = ({ name, setName }) => {
+const ContactInfo = ({ name, setName, lastName, setLastName }) => {
   return (
     <>
       <div className="relative z-0 mb-6 w-full group">
@@ -27,8 +27,8 @@ const ContactInfo = ({ name, setName }) => {
           className="contactFormInput peer"
           placeholder=" "
           required
-          value={name}
-          onChange={(e) => setName(e.target.value)}
+          value={lastName}
+          onChange={(e) => setLastName(e.target.value)}
         />
         <label htmlFor="apellido" className="contactFormLabel">
           Apellido
