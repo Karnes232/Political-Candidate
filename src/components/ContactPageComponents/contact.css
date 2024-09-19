@@ -12,6 +12,11 @@ input:-webkit-autofill:focus {
   color: white !important;
 }
 
+input::placeholder {
+  -webkit-text-fill-color: #ffffff !important;
+  color: white !important;
+}
+
 input {
   -webkit-background-clip: text !important;
   background-clip: text !important;
