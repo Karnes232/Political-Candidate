@@ -3,11 +3,13 @@
 }
 
 input:-webkit-autofill {
-  -webkit-text-fill-color: #ffffff;
+  -webkit-text-fill-color: #ffffff !important;
+  @apply text-white
 }
 
 input:-webkit-autofill:focus {
-  -webkit-text-fill-color: #ffffff;
+  -webkit-text-fill-color: #ffffff !important;
+  @apply text-white
 }
 
 input {
