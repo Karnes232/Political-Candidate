@@ -2,6 +2,10 @@ import React from "react";
 import "react-phone-number-input/style.css";
 import PhoneInput from "react-phone-number-input";
 const ContactInfo = ({ name, setName, lastName, setLastName }) => {
+  const handlePhoneChange = (e) => {
+    console.log(e)
+  };
+
   return (
     <>
       <div className="relative z-0 mb-6 w-full group">
@@ -56,7 +60,7 @@ const ContactInfo = ({ name, setName, lastName, setLastName }) => {
           className={`contactFormInput peer`}
           placeholder="Enter phone number"
           // value={formData.phone}
-          // onChange={handlePhoneChange}
+          onChange={handlePhoneChange}
           // onCountryChange={handleCountryChange}
         />
       </div>
