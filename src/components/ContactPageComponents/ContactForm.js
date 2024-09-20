@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import ContactInfo from "./ContactInfo";
 import AddressInfo from "./AddressInfo";
 import CheckBoxes from "./CheckBoxes";
+import collectUserData from "../../hooks/collectUserData";
 
 const ContactForm = () => {
+  const [host, setHost] = useState("");
   const [formData, setFormData] = useState({
     "form-name": "Contact Form",
     nombre: "",
@@ -19,7 +21,10 @@ const ContactForm = () => {
     Donaciones: "Falso",
     Iniciativas: "Falso",
   });
-  console.log(formData);
+  useEffect(() => {
+    setHost(window.location.origin)
+  }, [])
+  let redirectHref = `${host}/contacto/gracias/?name=${formData.nombre}`;
 
   function getFormData(object) {
     const newFormData = new FormData();
@@ -37,8 +42,8 @@ const ContactForm = () => {
       },
       body: new URLSearchParams(dataFromForm).toString(),
     }).then(() => {
-      console.log("Form successfully submitted");
-      // collectUserData(dataFromForm, clearCart, redirectHref);
+      // console.log("Form successfully submitted");
+      collectUserData(dataFromForm, redirectHref);
     });
   };
 
