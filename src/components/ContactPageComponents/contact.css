@@ -2,11 +2,17 @@
   @apply block py-2.5 px-0 w-full text-base text-white bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-white text-fill-white;
 }
 
+.contactFormInputProvidenca {
+  @apply block py-2.5 px-0 w-full text-base bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-white;
+}
+
+.select__control {
+  @apply text-fill-white;
+}
 
 input {
   -webkit-background-clip: text !important;
   background-clip: text !important;
-
 }
 
 .PhoneInputInput {

@@ -1,10 +1,18 @@
 import React, { useState } from "react";
 import "react-phone-number-input/style.css";
 import PhoneInput from "react-phone-number-input";
-const ContactInfo = ({ name, setName, lastName, setLastName }) => {
-  const [idNumber, setIdNumber] = useState("");
+const ContactInfo = ({ formData, setFormData }) => {
+  const handleChange = ({ target }) => {
+    setFormData({
+      ...formData,
+      [target.name]: target.value,
+    });
+  };
   const handlePhoneChange = (e) => {
-    console.log(e);
+    setFormData({
+      ...formData,
+      teléfono: e,
+    });
   };
   const handleInputChange = (e) => {
     let value = e.target.value.replace(/\D/g, ""); // Remove non-numeric characters
@@ -16,11 +24,14 @@ const ContactInfo = ({ name, setName, lastName, setLastName }) => {
       value = value.replace(/(\d{3})(\d{7})(\d{1})/, "$1-$2-$3");
     }
 
-    setIdNumber(value);
+    setFormData({
+      ...formData,
+      cedula: value,
+    });
   };
   return (
     <>
-      <div className="relative z-0 mb-6 w-full group">
+      <div className="relative z-0 my-6 w-full group">
         <input
           type="text"
           name="nombre"
@@ -28,8 +39,8 @@ const ContactInfo = ({ name, setName, lastName, setLastName }) => {
           className="contactFormInput peer"
           placeholder=" "
           required
-          value={name}
-          onChange={(e) => setName(e.target.value)}
+          value={formData.nombre}
+          onChange={handleChange}
         />
         <label htmlFor="nombre" className="contactFormLabel">
           Nombre
@@ -43,8 +54,8 @@ const ContactInfo = ({ name, setName, lastName, setLastName }) => {
           className="contactFormInput peer"
           placeholder=" "
           required
-          value={lastName}
-          onChange={(e) => setLastName(e.target.value)}
+          value={formData.apellido}
+          onChange={handleChange}
         />
         <label htmlFor="apellido" className="contactFormLabel">
           Apellido
@@ -55,7 +66,7 @@ const ContactInfo = ({ name, setName, lastName, setLastName }) => {
           type="text"
           name="cedula"
           id="cedula"
-          value={idNumber}
+          value={formData.cedula}
           onChange={handleInputChange}
           maxLength={13}
           className="contactFormInput peer"
@@ -74,6 +85,8 @@ const ContactInfo = ({ name, setName, lastName, setLastName }) => {
           className="contactFormInput peer"
           placeholder=" "
           required
+          value={formData.email}
+          onChange={handleChange}
         />
         <label htmlFor="email" className="contactFormLabel">
           Email address
@@ -87,7 +100,7 @@ const ContactInfo = ({ name, setName, lastName, setLastName }) => {
           id="teléfono"
           className={`contactFormInput peer`}
           placeholder="Enter phone number"
-          // value={formData.phone}
+          value={formData.teléfono}
           onChange={handlePhoneChange}
           // onCountryChange={handleCountryChange}
         />
