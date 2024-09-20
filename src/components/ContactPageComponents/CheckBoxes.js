@@ -2,11 +2,18 @@ import React from "react";
 
 const CheckBoxes = ({ formData, setFormData }) => {
   const handleChange = ({ target }) => {
-    console.log(target.checked);
-    setFormData({
-      ...formData,
-      [target.name]: target.checked,
-    });
+    if (target.checked) {
+      setFormData({
+        ...formData,
+        [target.name]: "Verdadero",
+      });
+    }
+    if (!target.checked) {
+      setFormData({
+        ...formData,
+        [target.name]: "Falso",
+      });
+    }
   };
   return (
     <>
@@ -19,6 +26,7 @@ const CheckBoxes = ({ formData, setFormData }) => {
             type="checkbox"
             name="AfiliarMiembros"
             className="mr-2"
+            value={formData.AfiliarMiembros}
             onChange={handleChange}
           />{" "}
           Afiliar Miembros

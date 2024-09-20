@@ -14,8 +14,34 @@ const ContactForm = () => {
     dirección: "",
     ciudad: "",
     providencia: "",
+    AfiliarMiembros: "Falso",
+    Publicidad: "Falso",
+    Donaciones: "Falso",
+    Iniciativas: "Falso",
   });
   console.log(formData);
+
+  function getFormData(object) {
+    const newFormData = new FormData();
+    Object.keys(object).forEach((key) => newFormData.append(key, object[key]));
+    return newFormData;
+  }
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    const dataFromForm = getFormData(formData);
+    fetch("/", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      body: new URLSearchParams(dataFromForm).toString(),
+    }).then(() => {
+      console.log("Form successfully submitted");
+      // collectUserData(dataFromForm, clearCart, redirectHref);
+    });
+  };
+
   return (
     <>
       <form
@@ -26,6 +52,7 @@ const ContactForm = () => {
         data-netlify-honeypot="bot-field"
         id="contactForm"
         className="w-4/5 md:w-full max-w-md flex flex-col justify-center items-center mx-auto my-5 bg-gray-900 bg-opacity-75 p-5 rounded-lg"
+        onSubmit={handleSubmit}
       >
         <input type="hidden" name="form-name" value="Contact Form" />
         <ContactInfo formData={formData} setFormData={setFormData} />

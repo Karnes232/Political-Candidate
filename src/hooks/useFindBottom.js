@@ -6,7 +6,6 @@ const useFindBottom = (heroRef) => {
     if (heroRef?.current) {
       // Get the top and height of the div
       const rect = heroRef.current.getBoundingClientRect();
-      console.log(rect);
       // Calculate the bottom of the div
       setDivBottom(rect.top + rect.height);
     }
