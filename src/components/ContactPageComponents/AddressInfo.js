@@ -41,21 +41,6 @@ const AddressInfo = ({ formData, setFormData }) => {
         </label>
       </div>
       <ProvidenciaSelect />
-      {/* <div className="relative z-0 mb-6 w-full group">
-        <input
-          type="text"
-          name="providencia"
-          id="providencia"
-          className="contactFormInput peer"
-          placeholder=" "
-          required
-          value={formData.providencia}
-          onChange={handleChange}
-        />
-        <label htmlFor="providencia" className="contactFormLabel">
-        Providencia
-        </label>
-      </div> */}
     </>
   );
 };

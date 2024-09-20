@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import ContactInfo from "./ContactInfo";
 import AddressInfo from "./AddressInfo";
+import CheckBoxes from "./CheckBoxes";
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -29,6 +30,7 @@ const ContactForm = () => {
         <input type="hidden" name="form-name" value="Contact Form" />
         <ContactInfo formData={formData} setFormData={setFormData} />
         <AddressInfo formData={formData} setFormData={setFormData} />
+        <CheckBoxes formData={formData} setFormData={setFormData} />
         <button
           type="submit"
           className="px-10 py-2 my-3 bg-primary-color text-white text-lg font-bold uppercase rounded hover:opacity-70 focus:outline-none focus:bg-gray-700"
