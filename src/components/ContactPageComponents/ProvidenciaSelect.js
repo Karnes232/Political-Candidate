@@ -1,6 +1,6 @@
 import React from "react";
 import Select from "react-select";
-const ProvidenciaSelect = () => {
+const ProvidenciaSelect = ({ formData, setFormData }) => {
   let options = [
     {
       value: "Azua",
@@ -141,6 +141,13 @@ const ProvidenciaSelect = () => {
       color: "black",
     }),
   };
+  const handleChange = (e) => {
+  
+    setFormData({
+      ...formData,
+      providencia: e.value,
+    });
+  };
   return (
     <>
       <div className="relative z-50 mb-6 w-full group">
@@ -150,7 +157,7 @@ const ProvidenciaSelect = () => {
           classNamePrefix="select"
           isSearchable={true}
           name="providencia"
-          //   onChange={hotelChange}
+          onChange={handleChange}
           placeholder={"Providencia"}
           styles={style}
           required
