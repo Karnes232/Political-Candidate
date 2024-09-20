@@ -18,7 +18,9 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    require("tailwindcss-text-fill"),
+  ],
   extend: {
     backgroundImage: {
       "gradient-text":
