@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useRef } from "react";
 import ContactForm from "./ContactForm";
+import useFindBottom from "../../hooks/useFindBottom";
 
 const HeroComponent = ({ backgroundImage }) => {
+  const heroRef = useRef(null);
   let backgroundImageSplit =
     backgroundImage?.gatsbyImage?.images?.fallback?.srcSet.split(",");
   let backgroundImageSrc = [];
@@ -17,19 +19,23 @@ const HeroComponent = ({ backgroundImage }) => {
       newBackgroundImage.imageSrc +
       ")",
   };
+
+  const heroBottom = useFindBottom(heroRef);
+
   return (
     <>
       {" "}
-      <div className="absolute top-0 w-full h-screen">
+      <div className="absolute top-0 w-full min-h-fit">
         <div
-          className={`relative h-full bg-center bg-no-repeat bg-cover`}
+          ref={heroRef}
+          className={`relative min-h-fit pb-5 bg-center bg-no-repeat bg-cover`}
           style={HeroStyles}
         >
           <div className="h-24 lg:h-36"></div>
           <ContactForm />
         </div>
       </div>
-      <div className="h-screen"></div>
+      <div style={{ height: `${heroBottom}px` }}></div>
     </>
   );
 };

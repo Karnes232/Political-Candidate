@@ -143,7 +143,7 @@ const ProvidenciaSelect = () => {
   };
   return (
     <>
-      <div className="relative z-0 mb-6 w-full group">
+      <div className="relative z-50 mb-6 w-full group">
         <Select
           options={options}
           className="contactFormInputProvidenca"

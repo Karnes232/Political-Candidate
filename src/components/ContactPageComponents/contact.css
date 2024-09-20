@@ -10,6 +10,10 @@
   @apply text-fill-white;
 }
 
+.select__menu {
+  @apply z-50;
+}
+
 input {
   -webkit-background-clip: text !important;
   background-clip: text !important;
@@ -24,7 +28,7 @@ input {
 }
 
 .contactFormLabelCheckBox {
-  @apply text-base text-white;
+  @apply text-base text-white -z-10;
 }
 
 .contactFormLabel {
@@ -38,7 +42,4 @@ input {
 
 .zzz {
   z-index: 1000;
-}
-
-.contactFormBackGround {
 }
