@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "react-phone-number-input/style.css";
 import PhoneInput from "react-phone-number-input";
 const ContactInfo = ({ formData, setFormData }) => {
@@ -75,6 +75,20 @@ const ContactInfo = ({ formData, setFormData }) => {
         />
         <label htmlFor="cedula" className="contactFormLabel">
           Cedula
+        </label>
+      </div>
+      <div className="relative z-0 mb-6 w-full group">
+        <input
+          type="number"
+          name="colegioElectoral"
+          id="colegioElectoral"
+          value={formData.colegioElectoral}
+          onChange={handleChange}
+          maxLength={4}
+          className="contactFormInput peer"
+        />
+        <label htmlFor="colegioElectoral" className="contactFormLabel">
+          Colegio Electoral
         </label>
       </div>
       <div className="relative z-0 mb-6 w-full group">

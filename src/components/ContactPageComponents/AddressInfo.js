@@ -40,7 +40,7 @@ const AddressInfo = ({ formData, setFormData }) => {
           Ciudad
         </label>
       </div>
-      <ProvidenciaSelect formData={formData} setFormData={setFormData}/>
+      <ProvidenciaSelect formData={formData} setFormData={setFormData} />
     </>
   );
 };

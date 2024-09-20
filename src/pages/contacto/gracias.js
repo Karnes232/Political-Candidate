@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react'
-import Layout from '../../components/Layout/Layout';
-import { graphql } from 'gatsby';
-import HeroComponentGracias from '../../components/ContactPageComponents/HeroComponentGracias';
+import React, { useEffect, useState } from "react";
+import Layout from "../../components/Layout/Layout";
+import { graphql } from "gatsby";
+import HeroComponentGracias from "../../components/ContactPageComponents/HeroComponentGracias";
 
-const Gracias = ({data}) => {
-    const [name, setName] = useState("");
+const Gracias = ({ data }) => {
+  const [name, setName] = useState("");
   useEffect(() => {
     const searchParams = new URLSearchParams(document.location.search);
     setName(searchParams.get("name"));
@@ -12,13 +12,15 @@ const Gracias = ({data}) => {
   return (
     <Layout
       layout={data.allContentfulGeneralLayout.nodes[0]}
-      navBarColor={'text-white'}
+      navBarColor={"text-white"}
     >
-        <HeroComponentGracias name={name} backgroundImage={data.allContentfulPageLayout.nodes[0].backgroundImage}/>
-
+      <HeroComponentGracias
+        name={name}
+        backgroundImage={data.allContentfulPageLayout.nodes[0].backgroundImage}
+      />
     </Layout>
-  )
-}
+  );
+};
 
 export const query = graphql`
   query MyQuery {
@@ -56,4 +58,4 @@ export const query = graphql`
   }
 `;
 
-export default Gracias
+export default Gracias;

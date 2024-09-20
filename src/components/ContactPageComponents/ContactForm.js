@@ -11,6 +11,7 @@ const ContactForm = () => {
     nombre: "",
     apellido: "",
     cedula: "",
+    colegioElectoral: "",
     email: "",
     teléfono: "",
     dirección: "",
@@ -22,8 +23,8 @@ const ContactForm = () => {
     Iniciativas: "Falso",
   });
   useEffect(() => {
-    setHost(window.location.origin)
-  }, [])
+    setHost(window.location.origin);
+  }, []);
   let redirectHref = `${host}/contacto/gracias/?name=${formData.nombre}`;
 
   function getFormData(object) {

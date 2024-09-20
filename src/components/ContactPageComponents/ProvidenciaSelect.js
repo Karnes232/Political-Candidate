@@ -142,7 +142,6 @@ const ProvidenciaSelect = ({ formData, setFormData }) => {
     }),
   };
   const handleChange = (e) => {
-  
     setFormData({
       ...formData,
       providencia: e.value,
