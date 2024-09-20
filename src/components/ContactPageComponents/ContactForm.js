@@ -30,31 +30,12 @@ const ContactForm = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     const dataFromForm = getFormData(formData);
-    const body = new URLSearchParams(dataFromForm).toString()
-    console.log(body)
-
-    const form = document.getElementById("contactForm");
-    const newFormData = new FormData(form);
-    const formDataObj = {};
-    newFormData.forEach((value, key) => (formDataObj[key] = value));
-    const body2 = new URLSearchParams(newFormData).toString()
-    console.log(body2)
     fetch("/", {
       method: "POST",
       headers: {
         "Content-Type": "application/x-www-form-urlencoded",
       },
       body: new URLSearchParams(dataFromForm).toString(),
-    }).then(() => {
-      console.log("Form successfully submitted");
-      // collectUserData(dataFromForm, clearCart, redirectHref);
-    });
-    fetch("/", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/x-www-form-urlencoded",
-      },
-      body: new URLSearchParams(newFormData).toString(),
     }).then(() => {
       console.log("Form successfully submitted");
       // collectUserData(dataFromForm, clearCart, redirectHref);
