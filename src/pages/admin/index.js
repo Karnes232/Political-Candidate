@@ -2,19 +2,11 @@ import React, { useEffect, useState } from "react";
 import Layout from "../../components/Layout/Layout";
 import { graphql, navigate } from "gatsby";
 import { auth, db } from "../../config/firebase";
-import {
-  collection,
-  query,
-  doc,
-  getDoc,
-  getDocs,
-  orderBy,
-} from "firebase/firestore";
+import { collection, query, getDocs, orderBy } from "firebase/firestore";
 import { onAuthStateChanged } from "firebase/auth";
 import PotentialVoterList from "../../components/admin/PotentialVoterList";
 
 const Index = ({ data }) => {
-  const [user, setUser] = useState(null);
   const [potentialVoters, setPotentialVoters] = useState([]);
   useEffect(() => {
     async function fetchData() {
@@ -33,7 +25,6 @@ const Index = ({ data }) => {
         currentUser?.email === "reyesce.nancy@gmail.com"
       ) {
         fetchData();
-        setUser(user);
       } else if (
         currentUser?.email !== "karnes.james@gmail.com" ||
         currentUser?.email !== "reyesce.nancy@gmail.com"
