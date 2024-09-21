@@ -33,10 +33,7 @@ const SignIn = () => {
   };
 
   return (
-    <button
-      className="flex justify-center items-center h-screen"
-      onClick={signIn}
-    >
+    <button className="flex justify-center items-center p-5" onClick={signIn}>
       SignIn
     </button>
   );

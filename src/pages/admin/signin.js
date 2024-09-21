@@ -19,7 +19,10 @@ const Signin = ({ data }) => {
       layout={data.allContentfulGeneralLayout.nodes[0]}
       navBarColor={"text-black"}
     >
-      <SignIn />
+      <div></div>
+      <div className="flex justify-center items-center">
+        <SignIn />
+      </div>
     </Layout>
   );
 };
