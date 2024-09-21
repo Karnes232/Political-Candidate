@@ -15,7 +15,7 @@ const collectUserData = async (formData, redirectHref) => {
     colegioElectoral: formDataObj.colegioElectoral,
     email: formDataObj.email,
     teléfono: formDataObj.teléfono,
-    dirección: formDataObj.teléfono,
+    dirección: formDataObj.dirección,
     ciudad: formDataObj.ciudad,
     providencia: formDataObj.providencia,
     AfiliarMiembros: formDataObj.AfiliarMiembros,

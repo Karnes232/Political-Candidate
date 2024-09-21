@@ -4,7 +4,6 @@ import VideoComponent from "./VideoComponent";
 import RichText from "./RichText";
 
 const ProposalCard = ({ cardInfo }) => {
-  console.log(cardInfo.description);
   let backgroundImageSplit =
     cardInfo?.backgroundImage?.gatsbyImage?.images?.fallback?.srcSet.split(",");
   let backgroundImageSrc = [];

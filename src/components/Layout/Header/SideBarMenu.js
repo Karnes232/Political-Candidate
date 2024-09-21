@@ -1,5 +1,5 @@
 import { Link } from "gatsby";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   Sidebar,
   // menuClasses,
@@ -7,7 +7,31 @@ import {
   MenuItem,
 } from "react-pro-sidebar";
 import SocialMedia from "../Footer/SocialMedia";
+import { auth } from "../../../config/firebase";
+import { onAuthStateChanged, signOut } from "firebase/auth";
 const SideBarMenu = ({ toggled, setToggled, info }) => {
+  const [loggedIn, setLoggedIn] = useState(false);
+  const logout = async () => {
+    try {
+      await signOut(auth);
+      window.location.href = `/`;
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  useEffect(() => {
+    onAuthStateChanged(auth, async (user) => {
+      const currentUser = auth.currentUser;
+      if (
+        // currentUser?.email === "karnes.james@gmail.com" ||
+        // currentUser?.email === "reyesce.nancy@gmail.com"
+        currentUser
+      ) {
+        setLoggedIn(true);
+      }
+    });
+  }, []);
   return (
     <>
       <Sidebar
@@ -39,6 +63,17 @@ const SideBarMenu = ({ toggled, setToggled, info }) => {
               >
                 <p className="hamburger">Contacto</p>
               </MenuItem>
+              {loggedIn ? (
+                <>
+                  <MenuItem
+                    component={<button onClick={logout}>Logout</button>}
+                  >
+                    <p className="hamburger">Log Out</p>
+                  </MenuItem>
+                </>
+              ) : (
+                <></>
+              )}
             </Menu>
           </div>
           <footer className="hamburger mx-4">

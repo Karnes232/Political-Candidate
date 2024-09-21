@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "gatsby";
 import useWindowLocation from "../../../hooks/useWindowLocation";
+import { auth } from "../../../config/firebase";
+import { onAuthStateChanged, signOut } from "firebase/auth";
 
 const LinksRight = ({ navBarColor }) => {
+  const [loggedIn, setLoggedIn] = useState(false);
   const path = useWindowLocation();
   let borderColor = "";
   if (navBarColor === "text-white") {
@@ -11,6 +14,27 @@ const LinksRight = ({ navBarColor }) => {
   if (navBarColor === "text-black") {
     borderColor = "border-black";
   }
+
+  const logout = async () => {
+    try {
+      await signOut(auth);
+      window.location.href = `/`;
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  useEffect(() => {
+    onAuthStateChanged(auth, async (user) => {
+      const currentUser = auth.currentUser;
+      if (
+        currentUser?.email === "karnes.james@gmail.com" ||
+        currentUser?.email === "reyesce.nancy@gmail.com"
+      ) {
+        setLoggedIn(true);
+      }
+    });
+  }, []);
 
   return (
     <div className="hidden lg:flex lg:justify-between lg:w-[30rem] xl:w-[35rem]">
@@ -46,6 +70,15 @@ const LinksRight = ({ navBarColor }) => {
           Contacto
         </button>
       </Link>
+      {loggedIn ? (
+        <>
+          <button className={`text-sm ${navBarColor}`} onClick={logout}>
+            Logout
+          </button>
+        </>
+      ) : (
+        <></>
+      )}
     </div>
   );
 };
