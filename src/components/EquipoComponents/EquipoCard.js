@@ -5,7 +5,7 @@ import { SiGmail } from "react-icons/si";
 import { FaXTwitter, FaFacebook, FaInstagram } from "react-icons/fa6";
 import { Link } from "gatsby";
 const EquipoCard = ({ person }) => {
-  console.log(person);
+  console.log(person.urlSlug);
   const image = getImage(person.photo);
   return (
     <motion.div
@@ -16,7 +16,7 @@ const EquipoCard = ({ person }) => {
         duration: 3,
         delay: 0.3,
       }}
-      className="w-4/5 rounded-lg mx-auto shadow-2xl h-96 bg-white flex justify-center"
+      className="w-5/6 md:w-[20rem] xl:w-[22rem] rounded-lg mx-auto shadow-2xl h-96 bg-white flex justify-center"
     >
       <div className="flex flex-col my-10 w-4/5">
         <div className="flex justify-center items-center">
@@ -29,9 +29,11 @@ const EquipoCard = ({ person }) => {
 
         <h3 className="text-xl font-semibold mt-4">{person.name}</h3>
         <div className="font-medium text-gray-800 mt-2">{person.position}</div>
-        <button className="mt-5 bg-red-700 hover:bg-secondary-color px-2 py-3 text-white uppercase">
-          Learn More →
-        </button>
+        <Link to={person.urlSlug} className="no-underline" aria-label="Home">
+          <button className="mt-5 bg-red-700 hover:bg-primary-color px-2 py-3 text-white uppercase w-full">
+            Learn More →
+          </button>
+        </Link>
         <div className="flex space-x-3">
           {person.facebook ? (
             <a

@@ -1,6 +1,7 @@
 import React from "react";
 import Copyright from "./Copyright";
 import SocialMedia from "./SocialMedia";
+import Signature from "./Signature";
 const Footer = ({ info }) => {
   return (
     <footer className="border-b bg-secondary-color shadow-sm ">
@@ -10,6 +11,7 @@ const Footer = ({ info }) => {
           <Copyright candidateName={info.candidateName} />
         </div>
       </div>
+      <Signature />
     </footer>
   );
 };

@@ -37,7 +37,7 @@ const LinksRight = ({ navBarColor }) => {
   }, []);
 
   return (
-    <div className="hidden lg:flex lg:justify-between lg:w-[30rem] xl:w-[35rem]">
+    <div className="hidden lg:flex lg:justify-between lg:w-[35rem] xl:w-[40rem]">
       <Link
         to="/"
         className={`no-underline py-1 ${path === "/" ? `border-b ${borderColor}` : ""}`}
@@ -60,6 +60,14 @@ const LinksRight = ({ navBarColor }) => {
       >
         <button className={`navLinks ${navBarColor}`} translate="no">
           Propuestas
+        </button>
+      </Link>
+      <Link
+        to="/equipo"
+        className={`no-underline py-1 ${path === "/contacto/" ? `border-b ${borderColor}` : ""}`}
+      >
+        <button className={`navLinks ${navBarColor}`} translate="no">
+          Equipo
         </button>
       </Link>
       <Link
