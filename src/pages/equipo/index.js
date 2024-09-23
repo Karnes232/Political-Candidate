@@ -32,9 +32,6 @@ const Index = ({ data }) => {
         {data.allContentfulEquipo.nodes.map((person, index) => {
           return <EquipoCard person={person} key={index} />;
         })}
-        {data.allContentfulEquipo.nodes.map((person, index) => {
-          return <EquipoCard person={person} key={index} />;
-        })}
       </div>
     </Layout>
   );
