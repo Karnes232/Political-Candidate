@@ -23,7 +23,7 @@ const EquipoCard = ({ person }) => {
           <GatsbyImage
             image={image}
             alt={person.photo.title}
-            className="w-28 h-28"
+            className="w-28 h-28 rounded-full"
           />
         </div>
 
