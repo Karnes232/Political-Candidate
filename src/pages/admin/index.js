@@ -5,6 +5,7 @@ import { auth, db } from "../../config/firebase";
 import { collection, query, getDocs, orderBy } from "firebase/firestore";
 import { onAuthStateChanged } from "firebase/auth";
 import PotentialVoterList from "../../components/admin/PotentialVoterList";
+import Seo from "../../components/seo";
 
 const Index = ({ data }) => {
   const [potentialVoters, setPotentialVoters] = useState([]);
@@ -73,6 +74,24 @@ const Index = ({ data }) => {
 };
 
 export default Index;
+
+export const Head = ({ data }) => {
+  return (
+    <>
+      <Seo
+        title="Fuerza del Pueblo - Admin"
+        description="Fuerza del Pueblo - Admin"
+        keywords="none"
+        // schemaMarkup={schema}
+      />
+      <link
+        rel="canonical"
+        href={`${data.allContentfulGeneralLayout.nodes[0].url}admin`}
+      />
+      <meta name="robots" content="noindex,nofollow" />
+    </>
+  );
+};
 
 export const querie = graphql`
   query MyQuery {

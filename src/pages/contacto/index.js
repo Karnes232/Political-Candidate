@@ -31,7 +31,7 @@ export const Head = ({ data }) => {
       />
       <link
         rel="canonical"
-        href={`${data.allContentfulGeneralLayout.nodes[0].url}nostros`}
+        href={`${data.allContentfulGeneralLayout.nodes[0].url}contacto`}
       />
     </>
   );

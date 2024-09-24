@@ -4,6 +4,7 @@ import React, { useEffect } from "react";
 import Layout from "../../components/Layout/Layout";
 import { auth } from "../../config/firebase";
 import SignIn from "../../components/admin/SignIn";
+import Seo from "../../components/seo";
 
 const Signin = ({ data }) => {
   useEffect(() => {
@@ -28,6 +29,24 @@ const Signin = ({ data }) => {
 };
 
 export default Signin;
+
+export const Head = ({ data }) => {
+  return (
+    <>
+      <Seo
+        title="Fuerza del Pueblo - Admin"
+        description="Fuerza del Pueblo - Admin"
+        keywords="none"
+        // schemaMarkup={schema}
+      />
+      <link
+        rel="canonical"
+        href={`${data.allContentfulGeneralLayout.nodes[0].url}admin`}
+      />
+      <meta name="robots" content="noindex,nofollow" />
+    </>
+  );
+};
 
 export const querie = graphql`
   query MyQuery {

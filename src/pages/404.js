@@ -55,16 +55,19 @@ const NotFoundPage = ({ data }) => {
 export default NotFoundPage;
 
 export const Head = ({ data }) => {
-  const { title, description, keywords } = data.allContentfulSeo.nodes[0];
   return (
     <>
       <Seo
-        title={title}
-        description={description.description}
-        keywords={keywords.join(", ")}
+        title="Fuerza del Pueblo - 404"
+        description="Fuerza del Pueblo - 404"
+        keywords="404"
         // schemaMarkup={schema}
       />
-      <link rel="canonical" href="https://unknown.com/" />
+      <link
+        rel="canonical"
+        href={`${data.allContentfulGeneralLayout.nodes[0].url}404`}
+      />
+      <meta name="robots" content="noindex,nofollow" />
     </>
   );
 };
@@ -80,15 +83,6 @@ export const query = graphql`
         logo {
           gatsbyImage(width: 500, placeholder: BLURRED, formats: WEBP)
           title
-        }
-      }
-    }
-    allContentfulSeo(filter: { page: { eq: "Index" } }) {
-      nodes {
-        title
-        keywords
-        description {
-          description
         }
       }
     }
